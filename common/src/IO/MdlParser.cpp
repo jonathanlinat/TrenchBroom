@@ -238,7 +238,7 @@ bool MdlParser::canParse(const std::filesystem::path& path, Reader reader)
   return ident == MdlLayout::Ident && version == MdlLayout::Version6;
 }
 
-std::unique_ptr<Assets::EntityModel> MdlParser::doInitializeModel(Logger& /* logger */)
+std::unique_ptr<Assets::EntityModel> MdlParser::initializeModel(Logger& /* logger */)
 {
   auto reader = m_reader;
 
@@ -282,7 +282,7 @@ std::unique_ptr<Assets::EntityModel> MdlParser::doInitializeModel(Logger& /* log
   return model;
 }
 
-void MdlParser::doLoadFrame(
+void MdlParser::loadFrame(
   const size_t frameIndex, Assets::EntityModel& model, Logger& /* logger */)
 {
   auto reader = m_reader;
